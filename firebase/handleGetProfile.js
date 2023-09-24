@@ -8,8 +8,8 @@ const handleGetProfile = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
         console.log(user.displayName);
-        fullnameProfileDisplay.textContent = user.displayName;
         avatarProfileDisplay.src = user.photoURL;
+        fullnameProfileDisplay.textContent = user.displayName;
           // ...
         } else {
           // User is signed out

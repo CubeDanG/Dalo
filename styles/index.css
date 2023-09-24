@@ -256,9 +256,13 @@ body{
 }
 .logo {
     transition: 0.25s;
+    border-radius: 10px;
 }
 .logo:hover {
     transform: scale(1.1);
     /* background: red; */
     transition: 0.25s;
+}
+p {
+    nav-left: auto;
 }
