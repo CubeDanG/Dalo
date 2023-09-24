@@ -4,10 +4,11 @@ import {updateProfile, onAuthStateChanged} from "https://www.gstatic.com/firebas
 const submitBtn = document.getElementById('submit-btn');
 let avatarInput = document.getElementById('photo');
 let nameInput = document.getElementById('name');
+let backgroundInput = document.getElementById('background');
 
 const handleProfileChange = () => {
     updateProfile(auth.currentUser, {
-        displayName: nameInput.value, photoURL: avatarInput.value
+        displayName: nameInput.value, photoURL: avatarInput.value, backgroundURL: backgroundInput.value
       }).then(() => {
         // Profile updated!
         // ...
@@ -26,6 +27,7 @@ const handleGetProfile = () => {
         if (user) {
         nameInput.value = user.displayName;
         avatarInput.value = user.photoURL;
+        backgroundInput.value = user.backgroundURL;
           // ...
         } else {
           // User is signed out

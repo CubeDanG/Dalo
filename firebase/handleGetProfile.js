@@ -3,6 +3,7 @@ import {auth} from './config.js';
 
 const fullnameProfileDisplay = document.getElementById('fullname');
 const avatarProfileDisplay = document.getElementById('avatar');
+const backgroundProfileDisplay = document.getElementById('bg')
 
 const handleGetProfile = () => {
     onAuthStateChanged(auth, (user) => {
@@ -10,6 +11,7 @@ const handleGetProfile = () => {
         console.log(user.displayName);
         avatarProfileDisplay.src = user.photoURL;
         fullnameProfileDisplay.textContent = user.displayName;
+        backgroundProfileDisplay.src = user.backgroundURL;
           // ...
         } else {
           // User is signed out

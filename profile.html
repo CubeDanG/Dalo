@@ -3,14 +3,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-    <h1>Thông tin cá nhân</h1>
+    <!-- <h1>Thông tin cá nhân</h1>
     <p id="fullname"></p>
     <p id="email"></p>
-    <img src="" alt="avatar" id="avatar" class="avatar">
+    <img src="" alt="avatar" id="avatar" class="avatar"> -->
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="https://a3hntl.com/hinhanh/logo6.png" alt="Avatar Logo" style="width:40px;" class="logo rounded-pill"> 
+          </a>
+        </div>
+      </nav>
+    <div class="container d-flex justify-content-center align-items-center">
+             
+        <div class="card">
 
+         <div class="upper">
+
+           <img src="" id="bg" class="img-fluid">
+           
+         </div>
+
+         <div class="user text-center">
+
+           <div class="profile">
+
+             <img src="" class="rounded-circle" width="80" id="avatar">
+             
+           </div>
+
+         </div>
+
+
+         <div class="mt-5 text-center">
+
+           <h4 class="mb-0" id="fullname"></h4>
+           <!-- <span class="text-muted d-block mb-2">Los Angles</span> -->
+
+           <!-- <button class="btn btn-primary btn-sm follow">Follow</button> -->
+
+
+           <div class="d-flex justify-content-between align-items-center mt-4 px-4">
+
+             <!-- <div class="stats">
+               <h6 class="mb-0">Followers</h6>
+               <span>8,797</span>
+
+             </div>
+
+
+             <div class="stats">
+               <h6 class="mb-0">Projects</h6>
+               <span>142</span>
+
+             </div>
+
+
+             <div class="stats">
+               <h6 class="mb-0">Ranks</h6>
+               <span>129</span>
+
+             </div> -->
+
+           </div>
+           <a href="profile-edit.html" class="btn">Chỉnh sửa hồ sơ</a>             
+
+         </div>
+          
+        </div>
+
+      </div>
+
+    <script src="js/index.js"></script>  
     <script type="module" src="firebase/handleGetProfile.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
