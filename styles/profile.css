@@ -97,3 +97,13 @@
         padding: 10px;
         display: block;
     }
+    .btn1 {
+        width: fit-content;
+    }
+    html {
+        overflow: hidden;
+        height: fit-content;
+    }
+    .container {
+        padding-bottom: 200px;
+    }

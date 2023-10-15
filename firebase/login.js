@@ -12,6 +12,15 @@ const handleLogin = () => {
     .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    const email = user.email;
+    const displayName = user.displayName;
+    const photoURL = user.photoURL;
+    const userProfile = {
+        email, 
+        displayName, 
+        photoURL
+    }
+    localStorage.setItem('currentUser', JSON.stringify(userProfile));
     alert("Đăng nhập thành công, chuyển đến trang chủ.")
     window.location.replace("./index.html")
     })
