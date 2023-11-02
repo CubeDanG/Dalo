@@ -1,4 +1,4 @@
-import {db} from './config.js';
+import {db, auth} from './config.js';
 import {
     collection,
     query,
@@ -9,6 +9,9 @@ import {
     where, 
     onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+
+import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+
 
 const ref = collection(db, "messages");
 const q = query(ref, orderBy('createdAt'));
@@ -25,10 +28,20 @@ const addMessage = async () => {
     await addDoc(ref, {
         content: message,
         sender: userProfile.displayName ? userProfile.displayName : 'Guest',
+        photoURL: userProfile.photoURL,
         createdAt: serverTimestamp(),
-
     });
 }
+
+inputMessage.addEventListener("keypress", function(event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+      // Cancel the default action, if needed
+        addMessage();
+        inputMessage.value = "";
+      // Trigger the button element with a click
+    }
+  });
 
 sendBtn.addEventListener('click', addMessage);
 
@@ -54,21 +67,75 @@ onSnapshot(q, (querySnapshot) => {
     // console.log("Current cities in CA: ", cities.join(", "));
   });
   
+  const handleGetProfile = () => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+        console.log(user.displayName);
+        avatarProfileDisplay.src = user.photoURL;
+        // fullnameProfileDisplay.textContent = user.displayName;
+        // backgroundProfileDisplay.src = user.backgroundURL;
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+      
+}
+
+handleGetProfile();
 
 const wrapperMessage = document.getElementById('messages-list');
 const renderMessage = () => {
     wrapperMessage.innerHTML = "";
     const sender = localStorage.getItem('currentUser');
-    const userProfile = JSON.parse(sender);
     messageList.forEach((message) => {
-        const senderElm = document.createElement('p');
-        senderElm.textContent = userProfile.displayName;
-        wrapperMessage.appendChild(senderElm);
-        const msgElm = document.createElement('p');
+        const liElm = document.createElement('li');
+        const divMsg = document.createElement('div');
+        const divMsg2 = document.createElement('div')
+        const avtElm = document.createElement('img');
+        const sendTime = ref.createdAt;
+        avtElm.classList.add("rounded-circle");
+        avtElm.setAttribute('id','avatar');
+        avtElm.setAttribute('width', '30');
+        avtElm.src = message.photoURL;
+        // const handleGetProfile = () => {
+        //     onAuthStateChanged(auth, (user) => {
+        //         if (user) {
+        //         console.log(user.displayName);
+        //         avtElm.src = user.photoURL;
+        //         // fullnameProfileDisplay.textContent = user.displayName;
+        //         // backgroundProfileDisplay.src = user.backgroundURL;
+        //           // ...
+        //         } else {
+        //           // User is signed out
+        //           // ...
+        //         }
+        //       });
+              
+        // }
+        // handleGetProfile();
+        liElm.classList.add("clearfix");
+        divMsg.classList.add('message-data');
+
+
+        liElm.appendChild(divMsg);
+        liElm.appendChild(divMsg2);
+        divMsg.appendChild(avtElm);
+        wrapperMessage.appendChild(liElm);
+
+        const senderElm = document.createElement('div');
+        senderElm.classList.add("message-data-time");
+        senderElm.textContent = message.sender + " - " + sendTime;
+        divMsg.appendChild(senderElm);
+        // wrapperMessage.appendChild(senderElm);
+        const msgElm = document.createElement('div');
+        msgElm.classList.add("message");
+        msgElm.classList.add("my-message");
         msgElm.textContent = message.content;
-        wrapperMessage.appendChild(msgElm);
+        liElm.appendChild(msgElm);
+        // wrapperMessage.appendChild(msgElm);
     })
 };
-
 
 getMessages();

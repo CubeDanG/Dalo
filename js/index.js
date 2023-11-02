@@ -15,4 +15,10 @@ const editProfileBtn = document.getElementById('edit-profile-btn');
 
 editProfileBtn.addEventListener('click', () => {
     window.location = './profile-edit.html';
-})
+});
+
+const postBtn = document.getElementById('post-btn1');
+
+postBtn.addEventListener('click', () => {
+    window.location = './post.html';
+});

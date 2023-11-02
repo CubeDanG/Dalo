@@ -90,7 +90,9 @@ body{
 
 .chat .chat-history {
     padding: 20px;
-    border-bottom: 2px solid #fff
+    border-bottom: 2px solid #fff;
+    height: 450px;
+    overflow-y: scroll;
 }
 
 .chat .chat-history ul {
@@ -262,7 +264,21 @@ body{
     transform: scale(1.1);
     /* background: red; */
     transition: 0.25s;
-}
+};
 p {
     nav-left: auto;
+}
+.post-btn {
+    position: absolute;
+    left: 100px;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--nav-color);
+    padding: 5px 5%;
+    position: sticky;
+    top: 0px;
+    z-index: 100;
 }
