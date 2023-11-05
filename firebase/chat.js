@@ -29,7 +29,7 @@ const addMessage = async () => {
         content: message,
         sender: userProfile.displayName ? userProfile.displayName : 'Guest',
         photoURL: userProfile.photoURL,
-        createdAt: serverTimestamp(),
+        createdAt: Date.now(),
     });
 }
 
@@ -64,6 +64,7 @@ onSnapshot(q, (querySnapshot) => {
         messageList.push(doc.data());
     });
     renderMessage();
+    
     // console.log("Current cities in CA: ", cities.join(", "));
   });
   
@@ -126,7 +127,10 @@ const renderMessage = () => {
 
         const senderElm = document.createElement('div');
         senderElm.classList.add("message-data-time");
-        senderElm.textContent = message.sender + " - " + sendTime;
+        const day = new Date(message.createdAt);
+        const m = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+        senderElm.textContent = message.sender + " - " + new Date(message.createdAt).toLocaleString();
         divMsg.appendChild(senderElm);
         // wrapperMessage.appendChild(senderElm);
         const msgElm = document.createElement('div');
@@ -136,6 +140,7 @@ const renderMessage = () => {
         liElm.appendChild(msgElm);
         // wrapperMessage.appendChild(msgElm);
     })
+    wrapperMessage.scrollTo(0, wrapperMessage.scrollHeight);
 };
 
 getMessages();
