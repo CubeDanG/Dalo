@@ -22,7 +22,7 @@ const handleLogin = () => {
     }
     localStorage.setItem('currentUser', JSON.stringify(userProfile));
     alert("Đăng nhập thành công, chuyển đến trang chủ.")
-    window.location.replace("./index.html")
+    window.location.replace("./chat.html")
     })
     .catch((error) => {
     const errorCode = error.code;
