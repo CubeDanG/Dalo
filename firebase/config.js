@@ -22,3 +22,4 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.3.1/firebase
   const app = initializeApp(firebaseConfig);
   export const auth = getAuth(app);
   export const db = getFirestore(app);
+
