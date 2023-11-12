@@ -91,6 +91,7 @@
         <button class="btn btn-danger" id="logout-btn"><i data-feather="log-out"></i>
             Đăng xuất
         </button>
+        <button class="btn btn-success chat-nav-btn" id="chat-btn1"><i data-feather="chrome"></i> Homepage</button>
         <button class="btn btn-success post-btn" id="chat-btn"><i data-feather="message-circle"></i> Chat</button>
     </nav>
 
@@ -150,7 +151,8 @@
                             </div>
                         </div>
                         <div class="status-field">
-                            <p id="content-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolores praesentium dicta
+                            <p id="content-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+                                dolores praesentium dicta
                                 laborum nihil accusantium odit laboriosam, sed sit autem! <a
                                     href="#">#This_Post_is_Better!!!!</a> </p>
                             <!-- <img src="images/feed-image-1.png" alt=""> -->
@@ -199,6 +201,12 @@
 
         postBtn.addEventListener('click', () => {
             window.location = 'chat.html';
+        });
+
+        const indexBtn = document.getElementById('chat-btn1');
+
+        indexBtn.addEventListener('click', () => {
+            window.location = './index.html';
         });
     </script>
 

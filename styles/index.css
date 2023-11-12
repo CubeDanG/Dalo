@@ -282,3 +282,7 @@ p {
     top: 0px;
     z-index: 100;
 }
+.chat-nav-btn {
+    position: absolute;
+    left: 200px;
+}
