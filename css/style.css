@@ -604,16 +604,20 @@ a:focus {
   text-align: center;
   background-color: #00204a;
   color: #ffffff;
+  display: flex;
+
 }
 
 .team_section .heading_container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+          
 }
 
 .team_section .team_container {
   padding: 0 15px;
+  
 }
 
 .team_section .team_container .box {
@@ -622,6 +626,9 @@ a:focus {
   overflow: hidden;
   -webkit-transition: all .1s;
   transition: all .1s;
+  margin-left: auto;
+  margin-right: auto;
+  
   margin-top: 45px;
   background: -webkit-gradient(linear, left top, left bottom, from(#002759), to(#002b64));
   background: linear-gradient(to bottom, #002759, #002b64);
