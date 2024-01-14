@@ -86,6 +86,8 @@ onSnapshot(q, (querySnapshot) => {
 
 handleGetProfile();
 
+
+//code render tin nhắn
 const wrapperMessage = document.getElementById('messages-list');
 const renderMessage = () => {
     wrapperMessage.innerHTML = "";
