@@ -53,7 +53,7 @@ const addPost = async () => {
   const newPostRequest = {
     content: contentInput.value,
     author: userProfile.displayName ? userProfile.displayName : 'Guest',
-    avatar: userProfile.photoURL,
+    avatar: userProfile.photoURL ? userProfile.photoURL: 'https://static.thenounproject.com/png/3825456-200.png',
     createdAt: Date.now(),
   };
   const response = await fetch(

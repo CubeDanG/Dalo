@@ -28,7 +28,7 @@ const addMessage = async () => {
     await addDoc(ref, {
         content: message,
         sender: userProfile.displayName ? userProfile.displayName : 'Guest',
-        photoURL: userProfile.photoURL,
+        photoURL: userProfile.photoURL ? userProfile.photoURL: 'https://static.thenounproject.com/png/3825456-200.png',
         createdAt: Date.now(),
     });
 }
@@ -94,6 +94,7 @@ const renderMessage = () => {
     const sender = localStorage.getItem('currentUser');
     messageList.forEach((message) => {
         const liElm = document.createElement('li');
+        liElm.classList.add("li-id");
         const divMsg = document.createElement('div');
         const divMsg2 = document.createElement('div')
         const avtElm = document.createElement('img');

@@ -286,3 +286,7 @@ p {
     position: absolute;
     left: 200px;
 }
+.messages-list {
+    height: 200px;
+    overflow-y: auto;
+  };

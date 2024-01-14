@@ -1,9 +1,9 @@
 import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 import {auth} from './config.js';
 
-const fullnameProfileDisplay = document.getElementById('fullname');
-const avatarProfileDisplay = document.getElementById('avatar');
-const backgroundProfileDisplay = document.getElementById('bg')
+const fullnameProfileDisplay = document.getElementById('fullname1');
+const avatarProfileDisplay = document.getElementById('user-avt');
+const backgroundProfileDisplay = document.getElementById('bg1')
 
 const handleGetProfile = () => {
     onAuthStateChanged(auth, (user) => {
