@@ -2,14 +2,14 @@ import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.3.1/fire
 import {auth} from './config.js';
 
 const fullnameProfileDisplay = document.getElementById('fullname1');
-const avatarProfileDisplay = document.getElementById('user-avt');
+const avatarProfileDisplay = document.getElementById('avatar');
 const backgroundProfileDisplay = document.getElementById('bg1')
 
 const handleGetProfile = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
         console.log(user.displayName);
-        avatarProfileDisplay.src = user.photoURL ? userProfile.photoURL: 'https://static.thenounproject.com/png/3825456-200.png';
+        avatarProfileDisplay.src = user.photoURL ? user.photoURL: 'https://static.thenounproject.com/png/3825456-200.png';
         fullnameProfileDisplay.textContent = user.displayName;
         backgroundProfileDisplay.src = user.backgroundURL;
           // ...
